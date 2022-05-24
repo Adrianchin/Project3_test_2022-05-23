@@ -2,7 +2,10 @@ const express = require("express");
 const multer = require("multer");
 const s3Storage = require("multer-sharp-s3");
 const aws = require("aws-sdk");
-const { uploadFile, getFileStream } = require('./s3')
+const { uploadFile, getFileStream } = require('./s3');
+const { Support } = require("aws-sdk");
+
+const {facelandmark} = require("./facelandmark");
 
 const s3 = new aws.S3();
 const app = express();
@@ -32,6 +35,11 @@ app.get("/images/:key", (req, res) => {
 app.post("/upload", upload.single("image"), (req, res, next) => {
   console.log(req.file); // Print upload details
   res.send("Successfully uploaded!");
+});
+
+app.get("/facelandmark", async (req, res, next) =>  {
+  let response = await facelandmark()
+  res.send(response)
 });
 
 app.listen(8080, () => console.log("listening on port 8080"));

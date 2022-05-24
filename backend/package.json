@@ -5,11 +5,13 @@
   "main": "index.js",
   "dependencies": {
     "@google-cloud/storage": "^5.20.5",
+    "@google-cloud/vision": "^2.4.2",
     "aws-sdk": "^2.1140.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "filepond": "^4.30.3",
     "get-stream": "^6.0.1",
+    "image-size": "^1.0.1",
     "multer": "^1.4.4",
     "multer-imager": "^4.2.0",
     "multer-s3": "^2.10.0",
